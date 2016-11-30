@@ -7,13 +7,8 @@ var app = angular.module('app', ['ui.router', 'ngCookies', 'ui.bootstrap', 'ngAn
     $stateProvider
     .state('home', {
       url:'/',
-      templateUrl: 'templates/home.html',
-      controller: 'homeCtrl'
+      templateUrl: 'templates/home.html'
     })
-      .state('home.list', {
-        url: '/list',
-        templateUrl: 'templates/home.list.html',
-      })
     .state('about', {
       url: '/about',
       templateUrl: 'templates/about.html',

@@ -1,4 +1,19 @@
-<h3>Search: <span><input type="text" ng-model="search"></span> </h3>
+
+<script type="text/ng-template" id="myModalContent.html">
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Are you sure?</h3>
+  </div>
+  <div class="modal-body" id="modal-body">
+    <button class="btn btn-success" type="button" ng-click="deleteAll()">Yes</button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+  </div>
+</script>
+
+
+<h3>Search: <span><input type="text" ng-model="search"></span>
+  <button class="btn btn-danger" type="button" ng-click="openModal()">Remove All</button>
+</h3>
+<br>
 
 
 <div class="container">
@@ -15,8 +30,8 @@
         <uib-accordion-heading>
           <input placeholder="Enter question" type="text" ng-model="new.FirstName"> <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
         </uib-accordion-heading>
-          <button ng-if="myForm.$valid" type="button" class="pull-right btn btn-success" ng-click="save(new)">Save</button>
           <input placeholder="Enter answer" type="text" ng-model="new.LastName">
+          <button ng-if="myForm.$valid" type="button" class="pull-right btn btn-success" ng-click="save(new)">Save</button>
       </div>
     </form>
   </uib-accordion>
