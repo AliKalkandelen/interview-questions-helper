@@ -5,7 +5,9 @@
     <title>Interview Questions Helper</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-
+    <style>
+      .nav, .pagination, .carousel, .panel-title a { cursor: pointer; text-decoration: none; font-weight: bold;}
+    </style>
   <body>
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -16,12 +18,15 @@
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js" /></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-touch.min.js" charset="utf-8"></script>
+    <script src="scripts/vendor/ui-bootstrap-tpls-2.3.0.min.js" charset="utf-8"></script>
     <script src="https://unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="https://code.angularjs.org/1.6.0-rc.2/angular-cookies.min.js" charset="utf-8"></script>
 
     <script src="/scripts/main.js"></script>
     <script src="/scripts/controllers/homeCtrl.js" charset="utf-8"></script>
-    <script src="/scripts/directives/mailingListDirective.js" charset="utf-8"></script>
+    <script src="/scripts/directives/questionListDirective.js" charset="utf-8"></script>
 
   </body>
 </html>

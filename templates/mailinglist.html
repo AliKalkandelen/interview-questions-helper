@@ -1,32 +1,23 @@
 <h3>Search: <span><input type="text" ng-model="search"></span> </h3>
 
-<table class="table table-striped">
-  <thead>
-    <th>
-      First Name
-    </th>
-    <th>
-      Last Name
-    </th>
-    <th>
-      Email Address
-    </th>
-  </thead>
-  <tbody><!--Repeats for each contact-->
-    <tr ng-repeat="contact in contacts | filter:search">
-      <td>{{contact.FirstName}}</td>
-      <td>{{contact.LastName}}</td>
-      <td>{{contact.EmailAddress}}</td>
-      <td><button type="button" class="btn btn-danger" ng-click="remove(contact)">Remove</button></td>
-    </tr>
-    <!--New contact Row-->
-    <tr id="addnew">
-      <td><input type="text" ng-model="new.FirstName"></td> <!--Data bind a "new" object to the scope-->
-      <td><input type="text" ng-model="new.LastName"></td>
-      <td><input type="text" ng-model="new.EmailAddress"></td>
-      <td><button type="button" class="btn btn-success" ng-click="save(new)">Save</button></td><!--Passes the "new" object to the $scope.save function-->
-    </tr>
-  </tbody>
-</table>
 
-<button type="button" class="btn btn-primary" ng-click="add()">Add New Person</button>
+<div class="container">
+  <uib-accordion close-others=true>
+    <div uib-accordion-group class="panel-default" is-open="status.open" ng-repeat="contact in contacts | filter:search">
+      <uib-accordion-heading>
+        {{contact.FirstName}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+      </uib-accordion-heading>
+        <button type="button" class="pull-right btn btn-danger" ng-click="remove(contact)">Remove</button>
+        {{contact.LastName}}
+    </div>
+    <form name="myForm">
+      <div uib-accordion-group class="panel-default" id="addnew">
+        <uib-accordion-heading>
+          <input placeholder="Enter question" type="text" ng-model="new.FirstName"> <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+        </uib-accordion-heading>
+          <button ng-if="myForm.$valid" type="button" class="pull-right btn btn-success" ng-click="save(new)">Save</button>
+          <input placeholder="Enter answer" type="text" ng-model="new.LastName">
+      </div>
+    </form>
+  </uib-accordion>
+</div>

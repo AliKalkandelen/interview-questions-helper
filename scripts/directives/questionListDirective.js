@@ -3,7 +3,9 @@ app.directive('mailingList', function(){
     restrict: 'E',
     require: 'mailingList',
     templateUrl: 'templates/mailinglist.html',
-    controller: function($scope, $cookies){
+    controller: ['$scope', '$cookies',  function($scope, $cookies){
+
+
 
       var exist = $cookies.getObject('contacts');
       if(exist){
@@ -17,7 +19,7 @@ app.directive('mailingList', function(){
 
 
       $(function(){
-        $("#addnew").hide();
+        $("#addnew").show();
       })
       //removes a contact from list
       $scope.remove = function(cnt){
@@ -33,11 +35,12 @@ app.directive('mailingList', function(){
 
       //adds a new contact to the list
       $scope.save = function(newcnt){
+        $scope.new = {}; //clears the 'new' object declared in the html
         $scope.contacts.push(newcnt);
         $cookies.putObject('contacts', $scope.contacts);
-        $scope.new = {}; //clears the 'new' object declared in the html
-        $("#addnew").hide();
+        // $("#addnew").hide();
+        $scope.isItOpen = false;
       }
-    }
+    }]
   };
 })

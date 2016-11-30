@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router', 'ngCookies'])
+var app = angular.module('app', ['ui.router', 'ngCookies', 'ui.bootstrap', 'ngAnimate'])
 
 
   app.config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider,$stateProvider ){
