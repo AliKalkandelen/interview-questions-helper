@@ -12,10 +12,6 @@ var app = angular.module('app', ['ui.router', 'ngCookies', 'ui.bootstrap', 'ngAn
     .state('about', {
       url: '/about',
       templateUrl: 'templates/about.html',
-      views: {
-        "jumbotron": {templateUrl: 'templates/jumbotron.html'},
-        "links": {templateUrl: 'templates/about.html'}
-      },
-    controller: 'aboutCtrl'
+      controller: 'aboutCtrl'
     })
   }])

@@ -12,9 +12,12 @@
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div ng-include="'templates/header.html'"></div>
-    <div ui-view></div>
-    <div ng-include="'templates/footer.html'"></div>
+    <div class="container">
+      <div ng-include="'templates/header.html'"></div>
+      <div ui-view></div>
+      <div ng-include="'templates/footer.html'"></div>
+    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js" /></script>

@@ -1,9 +1,12 @@
 app.directive('mailingList', function(){
   return{
     restrict: 'E',
-    require: 'mailingList',
     templateUrl: 'templates/mailinglist.html',
+    link : function(scope, element, attrs, mailingListController){
+      // console.log(scope);
+    },
     controller: ['$scope', '$cookies', '$uibModal', '$document',  function($scope, $cookies, $uibModal, $document){
+      console.log($scope);
 
 
         var exist = $cookies.getObject('contacts');
@@ -19,11 +22,11 @@ app.directive('mailingList', function(){
         $(function(){
           $("#addnew").show();
         })
-        //removes a contact from list
+        //removes a question from list
         $scope.remove = function(cnt){
           var index = $scope.contacts.indexOf(cnt); //find where is contact in $scope.contacts array
           $scope.contacts.splice(index, 1);
-          $cookies.putObject('contacts', $scope.contacts);
+          refresh();
         }
 
 
@@ -31,18 +34,14 @@ app.directive('mailingList', function(){
           $("#addnew").toggle(200); //toggles the input line
         }
 
-        //adds a new contact to the list
+        //adds a new question to the list
         $scope.save = function(newcnt){
-          $("form")[0].reset();
+          console.log(" $scope.new " , $scope.new);
+          console.log(" newcnt " , newcnt);
+          console.log("Whole Scope" , $scope);
           $scope.contacts.push(newcnt);
-          $cookies.putObject('contacts', $scope.contacts);
-          $scope.contacts = $cookies.getObject('contacts'); //TODO: Find a better way to break the bind
-          // $("#addnew").hide();
-          $scope.isItOpen = false;
+          refresh();
         }
-
-
-
 
 
         $scope.openModal = function (parentSelector) {
@@ -70,8 +69,10 @@ app.directive('mailingList', function(){
           });
         }
 
-
-
+        function refresh(){
+          $cookies.putObject('contacts', $scope.contacts);
+          $scope.contacts = $cookies.getObject('contacts'); //TODO: Find a better way to break the bind
+        }
 
 
     }]
