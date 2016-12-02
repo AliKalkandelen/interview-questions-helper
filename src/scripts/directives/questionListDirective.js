@@ -69,6 +69,11 @@ app.directive('mailingList', function(){
             appendTo: parentElem,
           });
         }
+
+
+
+
+
     }]
   };
 })
